@@ -1,0 +1,25 @@
+{
+  "name": "cair-syntax",
+  "displayName": "CAIR Syntax",
+  "description": "Syntax highlighting for Caiman IR assembly",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "cair",
+      "aliases": ["Caiman IR", "cair"],
+      "extensions": [".cair"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "cair",
+      "scopeName": "source.cair",
+      "path": "./syntaxes/cair.tmLanguage.json"
+    }]
+  }
+}

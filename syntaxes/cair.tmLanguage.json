@@ -1,0 +1,105 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Caiman IR",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#flow"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#function"
+		},
+		{
+			"include": "#node"
+		},
+		{
+			"include": "#slot"
+		},
+		{
+			"include": "#primitive_type"
+		},
+		{
+			"include": "#complex_type"
+		},
+		{
+			"include": "#literal"
+		}
+	],
+	"repository": {
+		"flow": {
+			"name": "keyword.control.cair",
+			"match": "\\b(return)\\b"
+		},
+		"keywords": {
+			"name": "keyword.other.cair",
+			"match": "\\b(version \\d\\.\\d\\.\\d|types|extras|slot|event|external_cpu|external_gpu|resource|value|schedule|timeline|value_function|pipeline)\\b"
+		},
+		"operators": {
+			"name": "keyword.operator.cair",
+			"match": "=|:|->"
+		},
+		"function": {
+			"name": "entity.name.function.cair",
+			"match": "@[A-Za-z]\\w*"
+		},
+		"comment": {
+			"name": "comment.line.cair",
+			"match": "(//).*$\\n?"
+		},
+		"slot": {
+			"name": "variable.parameter.cair",
+			"match": "\\$[A-Za-z]\\w*"
+		},
+		"node": {
+			"name": "variable.name.cair",
+			"match": "%\\w+"
+		},
+		"literal": {
+			"name": "constant.numeric.cair",
+			"match": "(?<=\\W)\\d+(u8|u16|u32|u64|usize|i8|i16|i32|i64|isize|f32|f64)?(?=\\W)"
+		},
+		"primitive_type": {
+			"name": "entity.name.type.cair",
+			"match": "(u8|u16|u32|u64|usize|i8|i16|i32|i64|isize|f32|f64|gpu_buffer_allocator)"
+		},
+		"complex_type": {
+			"name": "strong.cair",
+			"begin": "[A-Za-z_]+<",
+			"end": ">",
+			"patterns": [
+				{
+					"include": "#primitive_type"
+				},
+				{
+					"include": "#complex_type"
+				},
+				{
+					"include": "#literal"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.cair",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cair",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.cair"
+}
