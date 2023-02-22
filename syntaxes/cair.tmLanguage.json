@@ -6,6 +6,9 @@
 			"include": "#comment"
 		},
 		{
+			"include": "#block_comment"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -43,7 +46,7 @@
 		},
 		"keywords": {
 			"name": "keyword.other.cair",
-			"match": "\\b(version \\d\\.\\d\\.\\d|types|extras|slot|event|external_cpu|external_gpu|resource|value|schedule|timeline|value_function|pipeline)\\b"
+			"match": "\\b(version \\d\\.\\d\\.\\d|types|extras|slot|event|external_cpu|external_gpu|resource|value|schedule|timeline|spatial|value_function|pipeline)\\b"
 		},
 		"operators": {
 			"name": "keyword.operator.cair",
@@ -56,6 +59,17 @@
 		"comment": {
 			"name": "comment.line.cair",
 			"match": "(//).*$\\n?"
+		},
+		"block_comment": {
+			"name": "comment.block.cair",
+			"begin": "/\\*",
+			"end": "\\*/",
+			"patterns": [
+				{
+					"name": "comment.block.cair",
+					"match": "[^*] | \\*(?!/)"
+				}
+			]
 		},
 		"slot": {
 			"name": "variable.parameter.cair",
