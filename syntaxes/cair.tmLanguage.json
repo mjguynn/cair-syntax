@@ -46,7 +46,7 @@
 		},
 		"keywords": {
 			"name": "keyword.other.cair",
-			"match": "\\b(version \\d\\.\\d\\.\\d|types|extras|slot|event|external_cpu|external_gpu|resource|value|schedule|timeline|spatial|value_function|pipeline)\\b"
+			"match": "\\b(version \\d\\.\\d\\.\\d|types|extras|slot|event|external_cpu|external_gpu|resource|value|schedule|timeline|spatial|value_function|pipeline|buffer)\\b"
 		},
 		"operators": {
 			"name": "keyword.operator.cair",
